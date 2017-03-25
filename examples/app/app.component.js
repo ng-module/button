@@ -10,6 +10,10 @@ var AppComponent = (function () {
     function AppComponent() {
         this.loading = false;
     }
+    AppComponent.prototype.handleOK = function () {
+        console.log("click");
+    };
+    ;
     return AppComponent;
 }());
 AppComponent = __decorate([

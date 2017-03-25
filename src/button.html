@@ -1,4 +1,8 @@
-<button class={{classes}} (click)="handleClick($event)">
+<button #AsButton 
+        [class]="classes"
+        [type]="htmlType || 'button'"
+        (click)="handleClick($event)" 
+        (mouseup)="handleMouseUp()">
     <span>
         <ng-content></ng-content>
     </span>

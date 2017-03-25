@@ -6,4 +6,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent  {
     loading = false;
- }
+    handleOK(){
+      console.log("click")
+    };
+}
