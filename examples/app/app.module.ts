@@ -2,11 +2,11 @@ import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent }  from './app.component';
-import { AdButtonModule } from '../../src/index';
+import { AsButtonModule } from '../../src/index';
 
 
 @NgModule({
-  imports:      [ BrowserModule, AdButtonModule ],
+  imports:      [ BrowserModule, AsButtonModule ],
   declarations: [ AppComponent ],
   bootstrap:    [ AppComponent ]
 })
