@@ -3,7 +3,8 @@
     "baseDir": "examples",
     "routes": {
       "/node_modules": "node_modules",
-      "/src": "src"
+      "/src": "src",
+      "/style": "style"
     }
   }
 }

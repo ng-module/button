@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core'
 import * as classNames  from 'classnames'
+import './style/button.less'
 
 export type ButtonType = 'primary' | 'ghost' | 'dashed' | 'danger';
 export type ButtonShape = 'circle' | 'circle-outline';
@@ -9,7 +10,7 @@ export type ButtonSize = 'small' | 'large';
     moduleId: module.id,
     selector: 'as-button',
     templateUrl: 'button.html',
-    styleUrls: ['button.less']
+    // styles: [require('./style/button.less').css]
 })
 export class AsButton {
     private classes: any
@@ -39,7 +40,7 @@ export class AsButton {
     ghost: boolean
 
     constructor(){
-        this.prefixCls = "as"
+        this.prefixCls = "as-btn"
     }
 
     ngOnChanges(){
