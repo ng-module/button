@@ -1,7 +1,7 @@
 {
   "name": "ng-component-button",
-  "version": "1.0.0",
-  "description": "QuickStart package.json from the documentation, supplemented with testing support",
+  "version": "0.1.0",
+  "description": "Angular Component Button",
   "scripts": {
     "build": "tsc -p examples",
     "build:watch": "tsc -p examples -w",
