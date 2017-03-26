@@ -1,17 +1,14 @@
-import { Component, Input, Output, EventEmitter, SimpleChange, ViewChild, ElementRef } from '@angular/core'
+import { Component, Directive, HostListener, Input, Output, EventEmitter, SimpleChange, ViewChild, ElementRef, ViewEncapsulation } from '@angular/core'
 import * as classNames  from 'classnames'
 
 export type ButtonType = 'primary' | 'ghost' | 'dashed' | 'danger';
 export type ButtonShape = 'circle' | 'circle-outline';
 export type ButtonSize = 'small' | 'large';
 
-@Component({
-    moduleId: module.id,
-    selector: 'as-button',
-    templateUrl: 'button.html',
-    styleUrls: ['style/button.css']
+@Directive({
+    selector: "button[as-btn]"
 })
-export class AsButton {
+export class AsButtonStyle {
     private classes: any;
     private _loading: boolean;
     private clicked: boolean;
@@ -19,50 +16,37 @@ export class AsButton {
     timeout: any;
     delayTimeout: any;
 
-    @Input()
-    type: string
-
-    @Input()
-    htmlType: string
-
-    @Input()
-    icon: string
-
-    @Input()
-    shape: ButtonShape
-
-    @Input()
-    prefixCls: string
-
-    @Input()
-    size: ButtonSize
-
-    @Input()
-    loading: boolean
-
-    @Input()
-    ghost: boolean
-
-    @Output()
-    onClick = new EventEmitter<Event>();
-
-    @Output()
-    onMouseUp = new EventEmitter<Event>();
-
-    @ViewChild('AsButton') 
-    button: ElementRef;
-
-    constructor(){
+    constructor(private el: ElementRef) {
         this.prefixCls = "as-btn";
         this.clicked = false;
         this.ghost = false;
         this._loading = false;
     }
 
+    @Input() type: string;
+
+    @Input() htmlType: string;
+
+    @Input() icon: string;
+
+    @Input() shape: ButtonShape;
+
+    @Input() prefixCls: string;
+
+    @Input() size: ButtonSize;
+
+    @Input() loading: boolean;
+
+    @Input() ghost: boolean;
+
+    @Output() onClick = new EventEmitter<Event>();
+
+    @Output() onMouseUp = new EventEmitter<Event>();
+
     ngOnInit(){
         this.updateClass()
     }
-
+    
     ngOnChange(changes: {[propKey: string]: SimpleChange}){
         const currentLoading = this.loading
         const loading = changes["loading"];
@@ -87,7 +71,7 @@ export class AsButton {
         }
     }
 
-    handleClick = (e: Event) => {
+    @HostListener('click') handleClick = (e: Event) => {
         this.clicked = true;
         clearTimeout(this.timeout);
         this.timeout = setTimeout(() => this.clicked = false, 500);
@@ -98,14 +82,14 @@ export class AsButton {
         }
     }
 
-    handleMouseUp = (e: Event) => {
-        this.button.nativeElement.blur();
+    @HostListener('mouseup') handleMouseUp = (e: Event) => {
+        this.el.nativeElement.blur();
         if (this.onMouseUp) {
             this.onMouseUp.emit(e)
         }
     }
 
-    updateClass = () =>{
+    private updateClass = () =>{
         const { 
             type,
             htmlType,
@@ -121,7 +105,7 @@ export class AsButton {
             small: 'sm',
         })[size] || '';
         
-        this.classes = classNames(prefixCls, {
+        this.el.nativeElement.className = classNames(prefixCls, {
             [`${prefixCls}-${type}`]: !!type,
             [`${prefixCls}-${shape}`]: !!shape,
             [`${prefixCls}-${sizeCls}`]: !!sizeCls,
@@ -132,3 +116,12 @@ export class AsButton {
         })
     }
 }
+
+@Component({
+    moduleId: module.id,
+    selector: 'button',
+    templateUrl: 'button.html',
+    styleUrls: ['style/button.css'],
+    encapsulation: ViewEncapsulation.None
+})
+export class AsButton {}
