@@ -1,23 +1,17 @@
-import { Component, Input, ViewEncapsulation } from '@angular/core'
+import { Component, Directive, Input, ViewEncapsulation, ElementRef } from '@angular/core'
 import * as classNames from 'classnames'
 
 export type ButtonSize = 'small' | 'large';
 
-@Component({
-    moduleId: module.id,
-    selector: 'as-button-group',
-    templateUrl: 'button-group.html',
-    styleUrls: ['style/button.css'],
-    encapsulation: ViewEncapsulation.None,
+@Directive({
+    selector: '[as-button-group]'
 })
-export class AsButtonGroup{
-    private classes: any
-
+export class AsButtonGroupDirective{
     @Input() size: ButtonSize
 
     @Input() prefixCls?: string
 
-    constructor(){
+    constructor(private el: ElementRef){
         this.prefixCls = "as-btn-group"
     }
 
@@ -36,8 +30,17 @@ export class AsButtonGroup{
             small: 'sm',
         })[size] || '';
 
-        this.classes = classNames(prefixCls, {
+        this.el.nativeElement.className = classNames(prefixCls, {
             [`${prefixCls}-${sizeCls}`]: !!sizeCls,
         });
     }
 }
+
+@Component({
+    moduleId: module.id,
+    selector: '[as-button-group]',
+    templateUrl: 'button-group.html',
+    styleUrls: ['style/button.css'],
+    encapsulation: ViewEncapsulation.None,
+})
+export class AsButtonGroup{}

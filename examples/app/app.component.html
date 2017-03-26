@@ -1,6 +1,12 @@
 <div>
-    <button [type]="'primary'" as-btn >Primary</button>
-    <button as-btn>Default</button>
-    <button [type]="'dashed'" as-btn>Dashed</button>
-    <button [type]="'danger'" as-btn>Danger</button>
+    <button [type]="'primary'" as-button >Primary</button>
+    <button as-button>Default</button>
+    <button [type]="'dashed'" as-button>Dashed</button>
+    <button [type]="'danger'" as-button>Danger</button>
+</div>
+<div style="margin-top: 8px">
+    <div as-button-group>
+        <button as-button>Cancel</button>
+        <button as-button [type]="'primary'">OK</button>
+    </div>
 </div>

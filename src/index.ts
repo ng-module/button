@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AsButton, AsButtonStyle } from './button'
-import { AsButtonGroup } from './button-group'
+import { AsButton, AsButtonDirective } from './button'
+import { AsButtonGroup, AsButtonGroupDirective } from './button-group'
 
 @NgModule({
     imports: [ CommonModule ],
-    exports: [ AsButton, AsButtonStyle, AsButtonGroup ],
-    declarations: [ AsButton, AsButtonStyle,  AsButtonGroup,  ]
+    exports: [ AsButton, AsButtonDirective, AsButtonGroup, AsButtonGroupDirective ],
+    declarations: [ AsButton, AsButtonDirective,  AsButtonGroup, AsButtonGroupDirective ]
 })
 
 export class AsButtonModule {}

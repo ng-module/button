@@ -6,10 +6,9 @@ export type ButtonShape = 'circle' | 'circle-outline';
 export type ButtonSize = 'small' | 'large';
 
 @Directive({
-    selector: "button[as-btn]"
+    selector: "button[as-button]"
 })
-export class AsButtonStyle {
-    private classes: any;
+export class AsButtonDirective {
     private _loading: boolean;
     private clicked: boolean;
     private oldClicked: boolean;
@@ -119,7 +118,7 @@ export class AsButtonStyle {
 
 @Component({
     moduleId: module.id,
-    selector: 'button',
+    selector: 'button[as-button]',
     templateUrl: 'button.html',
     styleUrls: ['style/button.css'],
     encapsulation: ViewEncapsulation.None
