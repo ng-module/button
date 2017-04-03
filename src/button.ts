@@ -9,18 +9,13 @@ export type ButtonSize = 'small' | 'large';
     selector: "button[as-button]"
 })
 export class AsButtonDirective {
-    private _loading: boolean;
-    private clicked: boolean;
-    private oldClicked: boolean;
+    private _loading: boolean = false;
+    private _clicked: boolean = false;
+    private _oldClicked: boolean;
     timeout: any;
     delayTimeout: any;
 
-    constructor(private el: ElementRef) {
-        this.prefixCls = "as-btn";
-        this.clicked = false;
-        this.ghost = false;
-        this._loading = false;
-    }
+    constructor(private el: ElementRef) {}
 
     @Input() type: string;
 
@@ -30,13 +25,13 @@ export class AsButtonDirective {
 
     @Input() shape: ButtonShape;
 
-    @Input() prefixCls: string;
+    @Input() prefixCls: string = "as-btn";
 
     @Input() size: ButtonSize;
 
     @Input() loading: boolean;
 
-    @Input() ghost: boolean;
+    @Input() ghost: boolean = false;
 
     @Output() onClick = new EventEmitter<Event>();
 
@@ -64,16 +59,16 @@ export class AsButtonDirective {
     }
 
     ngDoCheck() {
-        if (this.clicked !== this.oldClicked) {
+        if (this._clicked !== this._oldClicked) {
             this.updateClass()
-            this.oldClicked = this.clicked
+            this._oldClicked = this._clicked
         }
     }
 
     @HostListener('click') handleClick = (e: Event) => {
-        this.clicked = true;
+        this._clicked = true;
         clearTimeout(this.timeout);
-        this.timeout = setTimeout(() => this.clicked = false, 500);
+        this.timeout = setTimeout(() => this._clicked = false, 500);
         
         const onClick = this.onClick;
         if (onClick) {
@@ -110,7 +105,7 @@ export class AsButtonDirective {
             [`${prefixCls}-${sizeCls}`]: !!sizeCls,
             // [`${prefixCls}-icon-only`]: !children && icon,
             [`${prefixCls}-loading`]: !!this._loading,
-            [`${prefixCls}-clicked`]: !!this.clicked,
+            [`${prefixCls}-clicked`]: !!this._clicked,
             [`${prefixCls}-background-ghost`]: !!ghost,
         })
     }
