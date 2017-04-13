@@ -1,5 +1,7 @@
 import { Component, Directive, HostListener, Input, Output, EventEmitter, SimpleChange, ViewChild, ElementRef, ViewEncapsulation } from '@angular/core'
-import * as classNames  from 'classnames'
+import classNames from 'classnames';
+
+
 
 export type ButtonType = 'primary' | 'ghost' | 'dashed' | 'danger';
 export type ButtonShape = 'circle' | 'circle-outline';
@@ -40,9 +42,9 @@ export class AsButtonDirective {
     ngOnInit(){
         this.updateClass()
     }
-    
+
     ngOnChange(changes: {[propKey: string]: SimpleChange}){
-        const currentLoading = this.loading
+        const currentLoading = this.loading;
         const loading = changes["loading"];
 
         if (currentLoading) {
@@ -60,7 +62,7 @@ export class AsButtonDirective {
 
     ngDoCheck() {
         if (this._clicked !== this._oldClicked) {
-            this.updateClass()
+            this.updateClass();
             this._oldClicked = this._clicked
         }
     }
@@ -69,22 +71,22 @@ export class AsButtonDirective {
         this._clicked = true;
         clearTimeout(this.timeout);
         this.timeout = setTimeout(() => this._clicked = false, 500);
-        
+
         const onClick = this.onClick;
         if (onClick) {
             onClick.emit(e)
         }
-    }
+    };
 
     @HostListener('mouseup') handleMouseUp = (e: Event) => {
         this.el.nativeElement.blur();
         if (this.onMouseUp) {
             this.onMouseUp.emit(e)
         }
-    }
+    };
 
     private updateClass = () =>{
-        const { 
+        const {
             type,
             htmlType,
             icon,
@@ -92,21 +94,21 @@ export class AsButtonDirective {
             prefixCls,
             size,
             ghost
-        } = this
+        } = this;
 
         const sizeCls =  ({
-            large: 'lg',
-            small: 'sm',
-        })[size] || '';
-        
+                large: 'lg',
+                small: 'sm',
+            })[size] || '';
+
         this.el.nativeElement.className = classNames(prefixCls, {
             [`${prefixCls}-${type}`]: !!type,
             [`${prefixCls}-${shape}`]: !!shape,
             [`${prefixCls}-${sizeCls}`]: !!sizeCls,
             // [`${prefixCls}-icon-only`]: !children && icon,
-            [`${prefixCls}-loading`]: !!this._loading,
-            [`${prefixCls}-clicked`]: !!this._clicked,
-            [`${prefixCls}-background-ghost`]: !!ghost,
+            [`${prefixCls}-loading`]: this._loading,
+            [`${prefixCls}-clicked`]: this._clicked,
+            [`${prefixCls}-background-ghost`]: ghost,
         })
     }
 }
@@ -114,7 +116,7 @@ export class AsButtonDirective {
 @Component({
     moduleId: module.id,
     selector: 'button[as-button]',
-    templateUrl: 'button.html',
+    templateUrl: 'button.component.html',
     styleUrls: ['style/button.css'],
     encapsulation: ViewEncapsulation.None
 })

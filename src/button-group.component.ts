@@ -1,5 +1,5 @@
 import { Component, Directive, Input, ViewEncapsulation, ElementRef } from '@angular/core'
-import * as classNames from 'classnames'
+import classNames from 'classnames';
 
 export type ButtonSize = 'small' | 'large';
 
@@ -7,9 +7,9 @@ export type ButtonSize = 'small' | 'large';
     selector: '[as-button-group]'
 })
 export class AsButtonGroupDirective{
-    @Input() size: ButtonSize
+    @Input() size: ButtonSize;
 
-    @Input() prefixCls?: string
+    @Input() prefixCls?: string;
 
     constructor(private el: ElementRef){
         this.prefixCls = "as-btn-group"
@@ -25,10 +25,10 @@ export class AsButtonGroupDirective{
             prefixCls
         } = this;
 
-       const sizeCls = ({
-            large: 'lg',
-            small: 'sm',
-        })[size] || '';
+        const sizeCls = ({
+                large: 'lg',
+                small: 'sm',
+            })[size] || '';
 
         this.el.nativeElement.className = classNames(prefixCls, {
             [`${prefixCls}-${sizeCls}`]: !!sizeCls,
@@ -39,7 +39,7 @@ export class AsButtonGroupDirective{
 @Component({
     moduleId: module.id,
     selector: '[as-button-group]',
-    templateUrl: 'button-group.html',
+    templateUrl: 'button-group.component.html',
     styleUrls: ['style/button.css'],
     encapsulation: ViewEncapsulation.None,
 })

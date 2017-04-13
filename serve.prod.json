@@ -1,0 +1,6 @@
+{
+    "port": "8000",
+    "files":"./dist/**/*.{html,css,js}",
+    "server":{ "baseDir": "./dist" },
+    "startPath":"/index.html"
+}

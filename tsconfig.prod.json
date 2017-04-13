@@ -1,9 +1,9 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "module": "commonjs",
+    "module": "es6",
     "moduleResolution": "node",
-    "declaration": false,
+    "declaration": true,
     "removeComments": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
@@ -16,11 +16,17 @@
     "noImplicitReturns": false,
     "noImplicitUseStrict": false,
     "noFallthroughCasesInSwitch": true,
-    "lib":["es6","dom"]
+    "lib":["es6","dom"],
+    "outDir": "./dist/",
+    "rootDir":"."
   },
   "exclude": [
     "node_modules",
-    "dist",
-    "src/main.aot.ts"
-  ]
+    "dist", 
+    "src/main.ts"
+  ],
+  "angularCompilerOptions": {
+   "genDir": "",
+   "skipMetadataEmit" : false
+ }
 }
