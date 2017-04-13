@@ -1,10 +1,12 @@
 # exclude /src/**/*.js
 /src/**/*.js
 /src/**/*.map
+/src/**/*.ngstyle.ts
 /src/**/*.ngfactory.js
 /src/**/*.ngfactory.ts
 /src/**/*.ngsummary.json
 /src/**/*.d.ts
+/example/**/*.js
 /node_modules/**/*
 /dist/**/*
 .idea/
