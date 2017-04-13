@@ -1,4 +1,4 @@
-const pkg = require('./package.json')
+const pkg = require('./package.json');
 const gulp = require('gulp');
 const exec = require('child_process').exec;
 const del = require ('del');
@@ -25,12 +25,21 @@ gulp.task('clean', function(){
 });
 
 gulp.task('clean:src', function(){
-  return del([
-    'src/**/*.ngfactory.ts',
-    'src/**/*.js',
-    'src/**/*.json',
-    'src/**/*.map'
-  ]);
+    return del([
+        'src/**/*.ngfactory.ts',
+        'src/**/*.js',
+        'src/**/*.json',
+        'src/**/*.map'
+    ]);
+});
+
+gulp.task('clean:example', function () {
+    return del([
+        'example/**/*.ngfactory.ts',
+        'example/**/*.js',
+        'example/**/*.json',
+        'example/**/*.map'
+    ])
 });
 
 
@@ -204,7 +213,7 @@ gulp.task('compress', function (cb) {
   ], cb);
 });
 
-gulp.task('build:dev', ['clean:src'], function(cb) {
+gulp.task('build:dev', ['clean:example'], function(cb) {
     runSequence(
       'compile:dev', cb);
 

@@ -1,7 +1,5 @@
 import { Component, Directive, HostListener, Input, Output, EventEmitter, SimpleChange, ViewChild, ElementRef, ViewEncapsulation } from '@angular/core'
-import * as _classNames  from 'classnames';
-
-let classNames = _classNames;
+import classNames from 'classnames';
 
 export type ButtonType = 'primary' | 'ghost' | 'dashed' | 'danger';
 export type ButtonShape = 'circle' | 'circle-outline';
@@ -106,9 +104,9 @@ export class AsButtonDirective {
             [`${prefixCls}-${shape}`]: !!shape,
             [`${prefixCls}-${sizeCls}`]: !!sizeCls,
             // [`${prefixCls}-icon-only`]: !children && icon,
-            [`${prefixCls}-loading`]: this._loading,
-            [`${prefixCls}-clicked`]: this._clicked,
-            [`${prefixCls}-background-ghost`]: ghost,
+            [`${prefixCls}-loading`]: !!this._loading,
+            [`${prefixCls}-clicked`]: !!this._clicked,
+            [`${prefixCls}-background-ghost`]: !!ghost,
         })
     }
 }

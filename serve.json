@@ -1,6 +1,8 @@
 {
     "port": "7000",
-    "files":"./src/**/*.{html,css,js}",
-    "server":{ "baseDir": "./" },
+    "files":"./example/**/*.{html,css,js}",
+    "server":{
+        "baseDir": "./"
+    },
     "startPath":"/index.html"
 }

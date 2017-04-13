@@ -1,7 +1,5 @@
 import { Component, Directive, Input, ViewEncapsulation, ElementRef } from '@angular/core'
-import * as _classNames  from 'classnames';
-
-let classNames = _classNames;
+import classNames from 'classnames';
 
 export type ButtonSize = 'small' | 'large';
 

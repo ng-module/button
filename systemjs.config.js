@@ -11,7 +11,7 @@
     // map tells the System loader where to look for things
     map: {
       // our app is within the app folder
-      app: 'src',
+      app: 'example',
 
       // angular bundles
       '@angular/core': 'npm:@angular/core/bundles/core.umd.js',
@@ -24,13 +24,38 @@
       '@angular/forms': 'npm:@angular/forms/bundles/forms.umd.js',
 
       // other libraries
+      'classnames': 'npm:classnames/index.js',
       'rxjs': 'npm:rxjs',
+
+
+      'plugin-traceur': 'npm:systemjs-plugin-traceur/plugin-traceur.js',
+      'traceur': 'npm:traceur/bin/traceur.js',
+      'traceur-runtime': 'npm:traceur/bin/traceur-runtime.js'
     },
+      meta: {
+          'traceur': {
+              format: 'global',
+              exports: 'traceur',
+              scriptLoad: false
+          },
+          'traceur-runtime': {
+              format: 'global',
+              exports: '$traceurRuntime'
+          }
+      },
+      transpiler: 'plugin-traceur',
+      transpilerRuntime: false,
     // packages tells the System loader how to load when no filename and/or no extension
     packages: {
       app: {
         main: 'main.js',
         defaultExtension: 'js'
+      },
+      "src": {
+        defaultExtension: 'js'
+      },
+      "dist/src":{
+         defaultExtension: 'js'
       },
       rxjs: {
         main: 'Rx.js',
