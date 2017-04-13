@@ -11,7 +11,7 @@
   "readme": "readme.md",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ng-component/ng4-starter-app.git"
+    "url": "https://github.com/ng-component/button.git"
   },
   "main": "dist/src/index.js",
   "typings": "dist/src/index.d.ts",
