@@ -1,0 +1,3 @@
+/dist/**/*.ngfactory.ts
+/dist/**/*.ngfactory.d.ts
+/dist/**/*.ngfactory.js

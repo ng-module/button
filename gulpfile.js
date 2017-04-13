@@ -89,16 +89,14 @@ gulp.task('rollup:app', function(){
       // console.warn everything else
       console.warn(warning.message);
     },
+
     plugins: [
           nodeResolve({
             jsnext: true,
             module: true
           }),
           commonjs({
-              include: [
-                  'node_modules/rxjs/**',
-                  'node_modules/classnames/**'
-              ],
+              include: 'node_modules/rxjs/**',
           })
     ]
   })
@@ -129,7 +127,7 @@ gulp.task('rollup:module', function() {
       // console.warn everything else
       console.warn(warning.message);
     }
-    
+
   }).then( function ( bundle ) {
     bundle.write({
       dest: `dist/${pkg.name}.bundle.umd.js`,

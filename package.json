@@ -1,7 +1,7 @@
 {
   "name": "ng-component-button",
   "version": "1.0.0",
-  "description": "a angular4 component button",
+  "description": "A angular component button.",
   "keywords": [
     "angular4",
     "aot",
@@ -11,7 +11,7 @@
   "readme": "readme.md",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ng-component/button.git"
+    "url": "https://github.com/ng-component/ng4-starter-app.git"
   },
   "main": "dist/src/index.js",
   "typings": "dist/src/index.d.ts",
@@ -44,6 +44,7 @@
     "zone.js": "^0.8.4"
   },
   "devDependencies": {
+    "@types/classnames": "0.0.32",
     "@types/node": "^7.0.5",
     "concurrently": "^3.1.0",
     "del": "^2.2.2",

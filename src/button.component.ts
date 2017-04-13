@@ -1,7 +1,7 @@
 import { Component, Directive, HostListener, Input, Output, EventEmitter, SimpleChange, ViewChild, ElementRef, ViewEncapsulation } from '@angular/core'
-import classNames from 'classnames';
+import * as _classNames  from 'classnames';
 
-
+let classNames = _classNames;
 
 export type ButtonType = 'primary' | 'ghost' | 'dashed' | 'danger';
 export type ButtonShape = 'circle' | 'circle-outline';
@@ -44,7 +44,7 @@ export class AsButtonDirective {
     }
 
     ngOnChange(changes: {[propKey: string]: SimpleChange}){
-        const currentLoading = this.loading;
+        const currentLoading = this.loading
         const loading = changes["loading"];
 
         if (currentLoading) {
@@ -62,7 +62,7 @@ export class AsButtonDirective {
 
     ngDoCheck() {
         if (this._clicked !== this._oldClicked) {
-            this.updateClass();
+            this.updateClass()
             this._oldClicked = this._clicked
         }
     }
@@ -76,14 +76,14 @@ export class AsButtonDirective {
         if (onClick) {
             onClick.emit(e)
         }
-    };
+    }
 
     @HostListener('mouseup') handleMouseUp = (e: Event) => {
         this.el.nativeElement.blur();
         if (this.onMouseUp) {
             this.onMouseUp.emit(e)
         }
-    };
+    }
 
     private updateClass = () =>{
         const {
@@ -94,7 +94,7 @@ export class AsButtonDirective {
             prefixCls,
             size,
             ghost
-        } = this;
+        } = this
 
         const sizeCls =  ({
                 large: 'lg',
@@ -116,8 +116,8 @@ export class AsButtonDirective {
 @Component({
     moduleId: module.id,
     selector: 'button[as-button]',
-    templateUrl: 'button.component.html',
-    styleUrls: ['style/button.css'],
+    templateUrl: './button.component.html',
+    styleUrls: ['./style/button.css'],
     encapsulation: ViewEncapsulation.None
 })
 export class AsButton {}

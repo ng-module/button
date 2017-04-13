@@ -8,4 +8,5 @@ import { AsButtonGroup, AsButtonGroupDirective } from './button-group.component'
     exports: [ AsButton, AsButtonDirective, AsButtonGroup, AsButtonGroupDirective ],
     declarations: [ AsButton, AsButtonDirective,  AsButtonGroup, AsButtonGroupDirective ]
 })
-export class AsButtonModule  { }
+
+export class AsButtonModule {}

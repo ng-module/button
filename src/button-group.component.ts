@@ -1,5 +1,7 @@
 import { Component, Directive, Input, ViewEncapsulation, ElementRef } from '@angular/core'
-import classNames from 'classnames';
+import * as _classNames  from 'classnames';
+
+let classNames = _classNames;
 
 export type ButtonSize = 'small' | 'large';
 
@@ -39,8 +41,8 @@ export class AsButtonGroupDirective{
 @Component({
     moduleId: module.id,
     selector: '[as-button-group]',
-    templateUrl: 'button-group.component.html',
-    styleUrls: ['style/button.css'],
+    templateUrl: './button-group.component.html',
+    styleUrls: ['./style/button.css'],
     encapsulation: ViewEncapsulation.None,
 })
 export class AsButtonGroup{}
