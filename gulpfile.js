@@ -219,7 +219,6 @@ gulp.task('build:dev', ['clean:example'], function(cb) {
 
 });
 
-
 gulp.task('build:module',['clean:dist', 'clean:src'], function(cb) {
    runSequence(
       'bundle:module',
