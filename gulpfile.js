@@ -86,7 +86,7 @@ gulp.task('compile:es6', function () {
 
 gulp.task('rollup:app', function(){
   return rollup.rollup( {
-    entry: 'dist/src/main.aot.js',
+    entry: 'example/main.aot.js',
     onwarn: function (warning) {
       // Skip certain warnings
 
