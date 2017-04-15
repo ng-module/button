@@ -21,6 +21,8 @@
   "exclude": [
     "node_modules",
     "dist",
+    "docs",
+    "src",
     "example/main.aot.ts"
   ]
 }

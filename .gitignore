@@ -7,6 +7,12 @@
 /src/**/*.ngsummary.json
 /src/**/*.d.ts
 /example/**/*.js
+/example/**/*.ngstyle.ts
+/example/**/*.ngfactory.js
+/example/**/*.ngfactory.ts
+/example/**/*.ngsummary.json
 /node_modules/**/*
+/docs/**/*.map
+/docs/**/*.bundle.js
 /dist/**/*
 .idea/

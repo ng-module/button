@@ -17,13 +17,14 @@
     "noImplicitUseStrict": false,
     "noFallthroughCasesInSwitch": true,
     "lib":["es6","dom"],
-    "outDir": "./docs/",
+    "outDir": "./dist/",
     "rootDir":"."
   },
   "exclude": [
     "node_modules",
     "docs",
-    "src"
+    "example",
+    "dist"
   ],
   "angularCompilerOptions": {
    "genDir": "",
